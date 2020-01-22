@@ -10,6 +10,7 @@ class Game {
       new Platform(400, 500, 400, 20, this.state)
     ];
     this.brokenGlass = new BrokenGlass();
+    this.bolt = new Bolt(500, 400);
   }
 
   setup() {
@@ -18,13 +19,20 @@ class Game {
 
   draw() {
     this.player.draw();
-    this.platformsArray.forEach((platform, index) => {
+    this.platformsArray.forEach(platform => {
+      if (this.playerFalls(this.player)) {
+        this.setup();
+      }
+
       this.collisionChecker(this.player, platform);
 
       platform.draw();
     });
-    if (this.playerFalls(this.player)) {
-      this.setup();
+
+    this.bolt.draw();
+
+    if (this.isTouchingBolt(this.player, this.bolt)) {
+      console.log("were touching");
     }
   }
 
@@ -51,11 +59,22 @@ class Game {
     let playerYPosition = player.y + player.height;
     if (playerYPosition > canvasHeight) {
       player.lives -= 1;
-      console.log(player.lives);
+
       this.brokenGlass.draw();
       return true;
     } else {
       return false;
+    }
+  }
+
+  isTouchingBolt(player, bolt) {
+    if (player.x + player.width < bolt.x || bolt.x + boltWidth < player.x) {
+      return false;
+    }
+    if (player.y + player.height < bolt.y || bolt.y + boltHeight < player.y) {
+      return false;
+    } else {
+      return true;
     }
   }
 }

@@ -15,4 +15,12 @@ class Platform {
       fill(darkGrey);
     }
   }
+
+  // levelUp(x, y, width, height, state){
+  //   this.x = x;
+  //   this.y = y;
+  //   this.width = width;
+  //   this.height = height;
+  //   this.state = state;
+  // }
 }

@@ -1,6 +1,6 @@
 class Player {
   constructor() {
-    this.img = loadImage("images/bulbo-light.png");
+    this.img = loadImage("images/light-bulb-gif.gif");
     this.velocity = 0;
     this.gravity = 0.4;
     this.jumpCount = 0;
@@ -8,8 +8,8 @@ class Player {
   }
 
   setup() {
-    this.height = this.img.height;
-    this.width = this.img.width;
+    this.height = bulbHeight;
+    this.width = bulbWidth;
     this.x = initX;
     this.y = initY;
     this.middleX = this.x + (this.x + this.width) / 2;
@@ -34,8 +34,7 @@ class Player {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    image(this.img, this.x, this.y);
-    // console.log(this.middleX);
+    image(this.img, this.x, this.y, bulbWidth, bulbHeight);
   }
 
   jump() {
@@ -45,19 +44,3 @@ class Player {
     }
   }
 }
-
-//are we falling if vel =< 0
-
-//collision checker position  platform.y +- if statement <bulbs.y -  range
-//find the x of the plat and bulbo
-
-//we assing origin Y of bulbo of the this.y
-
-// isFalling() {
-//   if (this.velocity <= 0 && this.velocity > -1) {
-//     console.log(this.velocity, this.originY, this.y);
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
