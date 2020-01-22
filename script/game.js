@@ -1,16 +1,13 @@
 class Game {
   constructor() {
-    this.state = true;
-  }
+    this.level = 0;
 
-  init() {
+    this.state = true;
+    this.platforms = platformArray[this.level];
+    this.bolt = boltsArray[this.level];
     this.player = new Player();
-    this.platformsArray = [
-      new Platform(0, 500, 180, 200, !this.state),
-      new Platform(400, 500, 400, 20, this.state)
-    ];
     this.brokenGlass = new BrokenGlass();
-    this.bolt = new Bolt(500, 400);
+    this.loading = new Loading();
   }
 
   setup() {
@@ -19,7 +16,10 @@ class Game {
 
   draw() {
     this.player.draw();
-    this.platformsArray.forEach(platform => {
+
+    this.platforms = platformArray[this.level];
+
+    this.platforms.forEach(platform => {
       if (this.playerFalls(this.player)) {
         this.setup();
       }
@@ -29,11 +29,19 @@ class Game {
       platform.draw();
     });
 
-    this.bolt.draw();
+    this.bolt.forEach(bolt => {
+      bolt.draw();
+      if (this.isTouchingBolt(this.player, bolt)) {
+        this.nextLevel();
+      }
+    });
+  }
 
-    if (this.isTouchingBolt(this.player, this.bolt)) {
-      console.log("were touching");
-    }
+  nextLevel() {
+    this.level += 1;
+
+    this.platforms = platformArray[this.level];
+    this.setup();
   }
 
   toggle() {
@@ -74,6 +82,7 @@ class Game {
     if (player.y + player.height < bolt.y || bolt.y + boltHeight < player.y) {
       return false;
     } else {
+      this.loading.draw();
       return true;
     }
   }

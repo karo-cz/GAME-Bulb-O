@@ -1,9 +1,5 @@
 const game = new Game();
 
-function preload() {
-  game.init();
-}
-
 function setup() {
   createCanvas(800, 700);
   game.setup();

@@ -1,10 +1,10 @@
 class BrokenGlass {
   constructor() {
-    this.img = loadImage("images/broken-screen.png");
+    // this.img = loadImage("images/broken-screen.png");
   }
 
   draw() {
-    image(this.img, 0, 0);
+    image(brokenGlass, 0, 0);
     noLoop();
     setTimeout(function() {
       loop();

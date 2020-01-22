@@ -1,10 +1,9 @@
 class Player {
   constructor() {
-    this.img = loadImage("images/light-bulb-gif.gif");
     this.velocity = 0;
     this.gravity = 0.4;
     this.jumpCount = 0;
-    this.lives = 5;
+    this.lives = 10;
   }
 
   setup() {
@@ -18,14 +17,14 @@ class Player {
 
   moveRight() {
     if (this.x <= canvasWidth - this.width) {
-      this.x += 7;
+      this.x += 5;
       this.middleX = this.x + (this.x + this.width) / 2;
     }
   }
 
   moveLeft() {
     if (this.x >= 0) {
-      this.x -= 7;
+      this.x -= 5;
       this.middleX = this.x + (this.x + this.width) / 2;
     }
   }
@@ -34,11 +33,11 @@ class Player {
     this.velocity += this.gravity;
     this.y += this.velocity;
 
-    image(this.img, this.x, this.y, bulbWidth, bulbHeight);
+    image(playerImage, this.x, this.y, bulbWidth, bulbHeight);
   }
 
   jump() {
-    if (this.jumpCount < 2) {
+    if (this.jumpCount < 1) {
       this.velocity = -10;
       this.jumpCount += 1;
     }

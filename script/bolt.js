@@ -1,6 +1,5 @@
 class Bolt {
   constructor(x, y) {
-    this.img = loadImage("images/bolt.gif");
     this.x = x;
     this.y = y;
   }
@@ -9,6 +8,6 @@ class Bolt {
     this.height = boltHeight;
   }
   draw() {
-    image(this.img, this.x, this.y, boltWidth, boltHeight);
+    image(boltImage, this.x, this.y, boltWidth, boltHeight);
   }
 }
