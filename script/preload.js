@@ -3,8 +3,12 @@ let playerImage;
 let loadingImage, loadingImage_create;
 let brokenGlass;
 let deadBulbo_load, deadBulbo_create;
+let soundLoop;
+let soundEffect;
 
 function preload() {
+  soundLoop = loadSound("souns/Pixel-Puppies.mp3");
+  soundEffect = loadSound("souns/SynthChime5.mp3");
   boltImage = loadImage("images/bolt.gif");
 
   playerImage = loadImage("images/light-bulb-gif.gif");

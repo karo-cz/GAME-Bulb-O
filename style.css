@@ -1,6 +1,8 @@
 body {
-  margin: auto;
+  margin: 100px auto;
   text-align: center;
-  background-image: url("images/green-board.jpg");
+  background-image: url("images/354341-PAOG1K-767.jpg");
   background-size: cover;
+  display: flex;
+  justify-content: space-around;
 }

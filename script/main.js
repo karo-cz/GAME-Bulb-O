@@ -7,6 +7,11 @@ function setup() {
 
 function draw() {
   clear();
+
+  if (!soundLoop.isPlaying()) {
+    soundLoop.play();
+  }
+
   let board; // background
 
   if (game.state) {

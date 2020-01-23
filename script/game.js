@@ -93,6 +93,7 @@ class Game {
     ) {
       return false;
     } else {
+      soundEffect.play();
       return true;
     }
   }
