@@ -5,6 +5,7 @@ let brokenGlass;
 let deadBulbo_load, deadBulbo_create;
 let soundLoop;
 let soundEffect;
+let gameOver;
 
 function preload() {
   soundLoop = loadSound("souns/Pixel-Puppies.mp3");
@@ -19,4 +20,6 @@ function preload() {
   brokenGlass = loadImage("images/broken-screen.png");
 
   deadBulbo = loadImage("images/bulbo-dies.gif");
+
+  gameOver = loadImage("images/theend.gif");
 }

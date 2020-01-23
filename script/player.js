@@ -3,7 +3,7 @@ class Player {
     this.velocity = 0;
     this.gravity = 0.4;
     this.jumpCount = 0;
-    this.lives = 10;
+    this.lives = 5;
   }
 
   setup() {
@@ -13,6 +13,8 @@ class Player {
     this.y = initY;
     this.middleX = this.x + (this.x + this.width) / 2;
     this.originY = this.y;
+    this.velocity = 0;
+    this.gravity = 0.4;
   }
 
   moveRight() {

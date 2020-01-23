@@ -1,7 +1,6 @@
 class Game {
   constructor() {
     this.level = 0;
-
     this.state = true;
     this.platforms = platformArray[this.level];
     this.bolt = boltsArray[this.level];
@@ -12,6 +11,8 @@ class Game {
 
   setup() {
     this.player.setup();
+
+    textSize(100);
   }
 
   draw() {
@@ -20,6 +21,12 @@ class Game {
     this.circle = circleArray[this.level];
     this.platforms = platformArray[this.level];
     this.bolt = boltsArray[this.level];
+    if (this.state) {
+      fill(white);
+    } else {
+      fill(50);
+    }
+    text(`${this.player.lives}`, 40, 100);
 
     this.circle.forEach(circle => {
       circle.draw();
@@ -45,6 +52,11 @@ class Game {
         this.nextLevel();
       }
     });
+
+    if (this.playerDies()) {
+      image(gameOver, 0, 0, 800, 700);
+      this.setup();
+    }
   }
 
   toggle() {
@@ -55,10 +67,10 @@ class Game {
     let playerYPosition = player.y + player.height;
     let difference = Math.abs(playerYPosition - platform.y);
     if (
-      player.x > platform.x &&
-      player.x + player.width < platform.x + platform.width &&
+      player.x + player.width - 50 > platform.x &&
+      player.x + player.width - 50 < platform.x + platform.width &&
       platform.y < playerYPosition &&
-      difference < 30 &&
+      difference < 15 &&
       game.state !== platform.state
     ) {
       player.velocity = 0;
@@ -72,6 +84,14 @@ class Game {
     if (playerYPosition > canvasHeight && player.lives > 0) {
       player.lives -= 1;
       this.brokenGlass.draw();
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  playerDies() {
+    if (this.lives < 1) {
       return true;
     } else {
       return false;

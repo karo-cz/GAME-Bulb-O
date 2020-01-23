@@ -5,4 +5,21 @@ body {
   background-size: cover;
   display: flex;
   justify-content: space-around;
+  font-family: "Raleway", sans-serif;
+  color: rgb(51, 51, 51);
+}
+
+.instructions {
+  text-align: center;
+}
+.bulbo {
+  font-size: 4rem;
+}
+
+.bulbo span {
+  /* color: rgb(233, 233, 233); */
+  font-size: 5rem;
+}
+.spacebar {
+  font-size: 2.5rem;
 }

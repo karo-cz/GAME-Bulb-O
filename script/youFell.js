@@ -8,6 +8,6 @@ class BrokenGlass {
     noLoop();
     setTimeout(function() {
       loop();
-    }, 2000);
+    }, 1000);
   }
 }
