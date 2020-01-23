@@ -4,10 +4,10 @@ class Loading {
   }
 
   draw() {
-    image(loadingImage, 0, 0, 600, 600);
     noLoop();
+    image(loadingImage, 0, 0, 800, 800);
     setTimeout(function() {
       loop();
-    }, 3000);
+    }, 1000);
   }
 }

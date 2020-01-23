@@ -17,14 +17,14 @@ class Player {
 
   moveRight() {
     if (this.x <= canvasWidth - this.width) {
-      this.x += 5;
+      this.x += 7;
       this.middleX = this.x + (this.x + this.width) / 2;
     }
   }
 
   moveLeft() {
     if (this.x >= 0) {
-      this.x -= 5;
+      this.x -= 7;
       this.middleX = this.x + (this.x + this.width) / 2;
     }
   }
@@ -37,7 +37,7 @@ class Player {
   }
 
   jump() {
-    if (this.jumpCount < 1) {
+    if (this.jumpCount <= 1) {
       this.velocity = -10;
       this.jumpCount += 1;
     }
