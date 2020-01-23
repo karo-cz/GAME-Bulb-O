@@ -44,4 +44,12 @@ class Player {
       this.jumpCount += 1;
     }
   }
+
+  // playerDies(){
+  //   if(this.lives < 1){
+  //     return true;
+  //   } else {
+  //     retrun false;
+  //   }
+  // }
 }

@@ -53,9 +53,16 @@ class Game {
       }
     });
 
-    if (this.playerDies()) {
+    if (this.player.lives < 1) {
       image(gameOver, 0, 0, 800, 700);
-      this.setup();
+
+      setTimeout(
+        function() {
+          this.level = 0;
+          this.setup();
+        }.bind(this),
+        4000
+      );
     }
   }
 
@@ -90,13 +97,13 @@ class Game {
     }
   }
 
-  playerDies() {
-    if (this.lives < 1) {
-      return true;
-    } else {
-      return false;
-    }
-  }
+  // playerDies() {
+  //   if (this.lives < 1) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // }
 
   isTouchingBolt(player, bolt) {
     //check left right
