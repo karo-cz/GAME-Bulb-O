@@ -55,7 +55,7 @@ class Game {
 
     if (this.player.lives < 1) {
       image(gameOver, 0, 0, 800, 700);
-
+      console.log(this.player.lives);
       setTimeout(
         function() {
           this.level = 0;

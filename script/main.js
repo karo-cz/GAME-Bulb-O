@@ -6,6 +6,7 @@ function setup() {
 }
 
 function draw() {
+  soundLoop.isPlaying();
   if (!soundLoop.isPlaying()) {
     soundLoop.play();
   }
