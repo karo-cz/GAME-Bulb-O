@@ -1,7 +1,5 @@
 class Loading {
-  constructor() {
-    // this.img = loadImage("images/bulb-ultrasound.gif");
-  }
+  constructor() {}
 
   draw() {
     noLoop();

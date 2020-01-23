@@ -1,11 +1,10 @@
 class Platform {
-  constructor(x, y, width, height, state, number) {
+  constructor(x, y, width, height, state) {
     this.x = x;
     this.y = y;
     this.width = width;
     this.height = height;
     this.state = state;
-    this.number = number;
   }
 
   draw() {
@@ -15,5 +14,33 @@ class Platform {
       fill(darkGrey);
     }
     rect(this.x, this.y, this.width, this.height);
+  }
+  playerRepellant() {
+    // FROM LEFT
+    let playerLeft = game.player.x + game.player.width >= this.x;
+    let playerRight = game.player.x <= this.x + this.width;
+    let playerFromBelow = game.player.y <= this.y + this.height;
+    let playerFromAbove = game.player.y + game.player.height >= this.y;
+    let safetyRadiumFromLeft = game.player.x <= this.x + 7;
+    let stateCheck = game.state !== this.state;
+    let safetyRadiumFromRight =
+      game.player.x + game.player.width >= this.x + this.width - 7;
+    if (
+      playerLeft &&
+      playerFromBelow &&
+      playerFromAbove &&
+      safetyRadiumFromLeft &&
+      stateCheck
+    ) {
+      game.player.x -= 10;
+    } else if (
+      playerRight &&
+      playerFromAbove &&
+      playerFromBelow &&
+      safetyRadiumFromRight &&
+      stateCheck
+    ) {
+      game.player.x += 10;
+    }
   }
 }

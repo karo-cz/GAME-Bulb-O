@@ -25,7 +25,7 @@ let platformArray = [
   [
     //level 4
     new Platform(-50, 650, 200, 60, false),
-    new Platform(150, 500, 200, 150, false),
+    new Platform(150, 500, 200, 150, true),
     new Platform(350, 350, 200, 150, false),
     new Platform(550, 200, 200, 150, true)
   ],

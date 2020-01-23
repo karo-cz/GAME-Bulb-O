@@ -24,6 +24,7 @@ class Game {
     this.circle.forEach(circle => {
       circle.draw();
     });
+
     this.collisionChecker(this.player, circle);
 
     this.platforms.forEach(platform => {
@@ -34,6 +35,7 @@ class Game {
       this.collisionChecker(this.player, platform);
 
       platform.draw();
+      platform.playerRepellant();
     });
 
     this.bolt.forEach(bolt => {
@@ -53,9 +55,9 @@ class Game {
     let playerYPosition = player.y + player.height;
     let difference = Math.abs(playerYPosition - platform.y);
     if (
-      player.x >= platform.x &&
-      player.x + player.width <= platform.x + platform.width &&
-      platform.y <= playerYPosition &&
+      player.x > platform.x &&
+      player.x + player.width < platform.x + platform.width &&
+      platform.y < playerYPosition &&
       difference < 30 &&
       game.state !== platform.state
     ) {
@@ -99,31 +101,5 @@ class Game {
 
     this.platforms = platformArray[this.level];
     this.setup();
-  }
-
-  bump(player, platform) {
-    let playerXPosition = player.x + player.width;
-    let playerYPosition = player.y + player.height;
-    // console.log(
-    //   player.y > platform.y + platform.height,
-    //   player.y < platform.y + platform.height,
-    //   playerXPosition > platform.x,
-    //   platform.state,
-    //   game.state
-    // );
-
-    if (
-      // playerXPosition > platform.x &&
-      // player.y + player.heigth >= platform.y &&
-      // player.y < platform.y + platform.height &&
-
-      (player.x + player.width <= platform.x ||
-        platform.x + platform.width <= player.x - player.width) &&
-      game.state !== platform.state
-    ) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }

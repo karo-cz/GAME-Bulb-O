@@ -1,4 +1,6 @@
 body {
   margin: auto;
   text-align: center;
+  background-image: url("images/green-board.jpg");
+  background-size: cover;
 }
