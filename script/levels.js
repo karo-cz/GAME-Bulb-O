@@ -44,6 +44,13 @@ let platformArray = [
     new Platform(650, 600, 350, 200, false),
     new Platform(650, 0, 350, 500, true)
   ]
+  // [
+  //   //level 7
+  //   new Platform(0, 570, 200, 130, false),
+  //   new Platform(230, 500, 30, 200, true),
+  //   new Platform(280, 500, 30, 200, true),
+  //   new Platform(300, 300, 200, 400, false)
+  // ]
 ];
 
 let boltsArray = [
@@ -54,6 +61,7 @@ let boltsArray = [
   [new Bolt(740, 20)], //level 4
   [new Bolt(740, 400)], //level 5
   [new Bolt(740, 520)] //level 6
+  // [new Bolt(350, 400)] //level 7
 ];
 
 let circleArray = [
@@ -120,4 +128,13 @@ let circleArray = [
       false
     )
   ]
+  // [
+  //   //7
+  //   new Circle(
+  //     Math.floor(Math.random() * 750),
+  //     Math.floor(Math.random() * 650),
+  //     Math.floor(Math.random() * 300) + 200
+  //   ),
+  //   false
+  // ]
 ];

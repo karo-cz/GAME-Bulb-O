@@ -6,11 +6,11 @@ function setup() {
 }
 
 function draw() {
-  soundLoop.isPlaying();
-  if (!soundLoop.isPlaying()) {
+  clear();
+
+  if (canPlay && !soundLoop.isPlaying()) {
     soundLoop.play();
   }
-  clear();
 
   let board; // background
 
@@ -30,8 +30,9 @@ function draw() {
     game.player.moveLeft();
   }
 }
-
+let canPlay = false;
 function keyPressed() {
+  canPlay = true;
   if (keyCode === 38) {
     game.player.jump();
   } else if (keyCode === 32) {

@@ -11,16 +11,15 @@ class Game {
 
   setup() {
     this.player.setup();
-
     textSize(100);
   }
 
   draw() {
     this.player.draw();
-
     this.circle = circleArray[this.level];
     this.platforms = platformArray[this.level];
     this.bolt = boltsArray[this.level];
+
     if (this.state) {
       fill(white);
     } else {
@@ -31,8 +30,6 @@ class Game {
     this.circle.forEach(circle => {
       circle.draw();
     });
-
-    this.collisionChecker(this.player, circle);
 
     this.platforms.forEach(platform => {
       if (this.playerFalls(this.player)) {
@@ -55,11 +52,11 @@ class Game {
 
     if (this.player.lives < 1) {
       image(gameOver, 0, 0, 800, 700);
-      console.log(this.player.lives);
       setTimeout(
         function() {
           this.level = 0;
           this.setup();
+          this.player.lives = 5;
         }.bind(this),
         4000
       );
@@ -97,14 +94,6 @@ class Game {
     }
   }
 
-  // playerDies() {
-  //   if (this.lives < 1) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // }
-
   isTouchingBolt(player, bolt) {
     //check left right
     if (
@@ -126,7 +115,6 @@ class Game {
   }
   nextLevel() {
     this.level += 1;
-
     this.platforms = platformArray[this.level];
     this.setup();
   }
