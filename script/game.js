@@ -27,6 +27,10 @@ class Game {
     }
     text(`${this.player.lives}`, 40, 100);
 
+    if (this.level > 6) {
+      text("To be continued...", 100, 100, 500, 500);
+    }
+
     this.circle.forEach(circle => {
       circle.draw();
     });
@@ -113,6 +117,7 @@ class Game {
       return true;
     }
   }
+
   nextLevel() {
     this.level += 1;
     this.platforms = platformArray[this.level];
